@@ -29,7 +29,7 @@ body{
 	echo "</table></center>";
 	mysqli_close($con)
 ?>
-<footer><center><a href='page1.php'>Home</a></center></footer>
+<footer><center><a href='index.php'>Home</a></center></footer>
 </body>
 </html>
 	
