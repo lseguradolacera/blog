@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Blog</title>
+		<title>blog</title>
 		<style>
 			#submit{
 				height:30px;
