@@ -1,6 +1,17 @@
 <html>
 	<head>
 		<title>Blog</title>
+		<style>
+			#submit{
+				height:30px;
+				width:50px;
+				color:white;
+				border-radius:5px;
+				border:1px solid;
+				border-color:green;
+				background-color:yellowgreen;
+				}	
+		</style>
 	</head>
 	<body>
 	
@@ -16,8 +27,8 @@
 
  
 				if(mysql_query($rec)){
-				echo "<h1 align='center'>Your Message Has Been Successfully Sent!!!</h1>"."<br />";
-				echo "<h2 align='center'><a href='page1.php'><INPUT TYPE=submit value=OK></a></h2>"."<br />";
+				echo "<h4 align='center'>Your Message Has Been Successfully Sent!!!</h4>"."<br />";
+				echo "<h6 align='center'><a href='page1.php'><INPUT id=submit TYPE=submit value=OK></a></h6>"."<br />";
 				}
 				else{
 				die("Your Message was not sent!!!");
