@@ -53,11 +53,11 @@ body {
 <div id="container">
 		<form  method="POST">
 			<table>
-				<tr><th>Pls fill the following information.</th></tr>
+				<tr><th>Pls fill in the asked information.</th></tr>
 				<tr><td>Name</tr></td>
 				<tr><td><input id="inputs" type="text" name="name" placeholder="Name" required/></td></tr>
 				<tr><td>Message:</td></tr>
-				<tr><td><textarea  id="textarea" name="message" placeholder="Your Message"></textarea></td></tr>
+				<tr><td><textarea  id="textarea" name="msg" placeholder="Your Message"></textarea></td></tr>
 			</table>
 			<table>
 				<tr><td><input id="submit" type="submit" value="Send" name="submit"></td>
@@ -69,13 +69,10 @@ body {
 		<?php
 			if (isset($_POST['submit']))
 				{	  
-					include 'connect.php';
-					$name=$_POST['name'] ;
-					$message= $_POST['message'] ;					
-					mysql_query("INSERT INTO message (name,message) 
-					VALUES ('$name','$message')");
+					include 'function.php';
 				}
 		?>
+		
 </div>
 
 </body>
