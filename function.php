@@ -28,7 +28,7 @@
  
 				if(mysql_query($rec)){
 				echo "<h4 align='center'>Your Message Has Been Successfully Sent!!!</h4>"."<br />";
-				echo "<h6 align='center'><a href='page1.php'><INPUT id=submit TYPE=submit value=OK></a></h6>"."<br />";
+				echo "<h6 align='center'><a href='index.php'><INPUT id=submit TYPE=submit value=OK></a></h6>"."<br />";
 				}
 				else{
 				die("Your Message was not sent!!!");
