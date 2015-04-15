@@ -1,12 +1,14 @@
 <html>
+<head> 
+<title> View </title>
+</head>
 <body>
 <style>
-	footer{
+footer{
 		position: fixed;
 		bottom: 0;
 		width: 100%;
 	}
-	
 	body{
 		font-family: calibri;
 		background: whitesmoke;
@@ -27,7 +29,6 @@
 	echo "</table></center>";
 	mysqli_close($con)
 ?>
-
 <footer><center><a href='page1.php'>Home</a></center></footer>
 </body>
 </html>
