@@ -1,97 +1,72 @@
 <html>
-<head> <title>blog</title>
-<link rel="styesheet" type="text/css" href="layout.css">
-<style>
-body {
-	font-family: "myriad pro", arial, sans-serif;
-	margin:auto;
-}
-#container{
-	margin-left:500px;
-	margin-top:130px;
-	width:315px;
-	
-	}
-#head{
-	background-color:yellowgreen;
-	}
-#message_entry{
-	width:315px;
-	background-color:#cccccc;
-	border-radius:8px;
-	padding:15px;
-	height:250px;
-	
-	}
-#inputs{
-	height:35px;
-	width:310px;
-	border-radius:5px;
-	border:1px solid;
-	border-color:white;
-	padding:5px;
-	}
-#textarea{
-	height:200px;
-	width:310px;
-	border-radius:5px;
-	border:1px solid;
-	border-color:white;
-	padding:5px;
-	}
-#submit{
-	height:35px;
-	width:80px;
-	color:white;
-	border-radius:5px;
-	border:1px solid;
-	border-color:#99ff33;
-	background-color:#99ff33;
-	}	
-#view_all{
-	float:right;
-	}
-	a:link {
-    text-decoration: none;
-		color:#99ff33;
-}l
-</style>
+<head> 
+<title> View </title>
 </head>
-
 <body>
-<div id="container">
-		<div id="view_all"><a href="view.php"><b><font size="4px">VIEW ALL</font></b></a></div>
-		<br/>
-		<br/>
-	<form  method="POST">
-		<div id="message_entry">
-		
-			<table>
-				<tr><td><input id="inputs" type="text" name="name" placeholder="Name" required/></td></tr>
-				<tr><td><textarea  id="textarea" name="message" placeholder="Your Message"></textarea></td></tr>
-			</table>
-			
-		</div>
-		<br/>
-		<div id="send">
-			<table>
-				<tr><td><input id="submit" type="submit" value="Send" name="submit"></td>
-				</tr>
-			</table>
-		</div>
-		</form>
-		
-		<?php
-			if (isset($_POST['submit']))
-				{	  
-					include 'connect.php';
-					$name=$_POST['name'] ;
-					$message= $_POST['message'] ;					
-					mysql_query("INSERT INTO message (name,message) 
-					VALUES ('$name','$message')");
-				}
-		?>
-</div>
+<style>
+footer{
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+	}
+body{
+		font-family: calibri;
+		background: whitesmoke;
+	}
+	#comments{
+		float:left;
+		width:310px;
+		padding:10px;
+		}
+	#message{
+		width:290px;
+		padding:15px;
+		background-color:#99ff00;
+		border-radius:9px;
+		color:white;
+		}
+	#name{
+		width:290px;
+		height:30px;
+		padding:3px;
+		background-color:#333333;
+		border-radius:5px;
+		}
+		a:link {
+    text-decoration: none;
+		color:#cccccc;
+}
+	
+</style>
 
+<center><h1>BLOG</h1>
+<hr color="grey">
+<?php
+	$con = mysqli_connect("localhost", "root", "", "blog");
+	$result = mysqli_query($con, "SELECT * FROM message order by id");
+	
+	echo "<table border='0'>";
+	while($row = mysqli_fetch_array($result))
+	{	
+		echo"<tr>";
+		echo "<div id='comments'>";
+			echo"<div id='message'>";
+			echo"<div style='float:right'><a href=''><b>x</b></a></div><br/>";
+				echo $row['message']."<br/>";
+				echo"<br />";
+				echo "<div id='name'>";
+				echo "<b>". $row['name'] ."</b>";
+				echo "<i>"." - ".date('jS \of F Y')."</i>";
+				echo "</ div>";
+			echo"</div>";
+		echo "</div>";
+		echo"</tr>";
+	}
+	echo "</table></center>";
+	mysqli_close($con)
+?>
+
+<footer><center><a href='index.php'>Home</a></center></footer>
 </body>
 </html>
+	
