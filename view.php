@@ -1,6 +1,6 @@
 <html>
 <head> 
-<title> View </title>
+<title>blog</title>
 </head>
 <body>
 <style>
