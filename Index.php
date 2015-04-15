@@ -1,6 +1,5 @@
 <html>
 <head> <title>blog</title>
-<link rel="styesheet" type="text/css" href="layout.css">
 <style>
 body {
 	font-family: "myriad pro", arial, sans-serif;
