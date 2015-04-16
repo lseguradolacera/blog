@@ -3,12 +3,19 @@
 			
 			class Connect_DB {
 				
-				private $conn;
+				public $db;
+				
 				
 				public function connect_db(){
 						$conn = mysql_connect("localhost","root","") or die(mysql_error());
 						mysql_select_db("blog", $conn) or die(mysql_error());
+						
+						$this->db = $conn;
 
+				}
+				
+				public function getConnection(){
+					return $this->db;
 				}
 				
 			}
@@ -17,7 +24,7 @@
 				
 				public function view_data(){
 					
-						$result = mysqli_query($conn, "SELECT * FROM message order by number");
+						$result = mysql_query($db, "SELECT * FROM message order by number");
 
 				}
 				
@@ -31,7 +38,7 @@
 						$msg = $_POST['msg'];
 					
 						$rec = "INSERT INTO message VALUES('','$name','$msg')";
-						
+						 
 						if(mysql_query($rec)){
 						header('Refresh: 0; url=index.php');
 						}
