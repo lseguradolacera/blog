@@ -1,5 +1,5 @@
 <?php
-include('homepage.php'); 
+include('loginfunction.php'); 
 
 if(isset($_SESSION['login_user'])){
 header("location: profile.php");
