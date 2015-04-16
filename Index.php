@@ -1,9 +1,9 @@
-		<?php
-			if (isset($_POST['submit']))
-				{	  
-					include 'function.php';
-				}
-		?>
+<?php
+	if (isset($_POST['submit']))
+	{	  
+	include 'function.php';
+	}
+?>
 
 <html>
 <head> <title>blog</title>
