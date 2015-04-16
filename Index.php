@@ -1,3 +1,10 @@
+		<?php
+			if (isset($_POST['submit']))
+				{	  
+					include 'function.php';
+				}
+		?>
+
 <html>
 <head> <title>blog</title>
 <style>
@@ -65,13 +72,6 @@ body {
 				</tr>
 			</table>
 		</form>
-		
-		<?php
-			if (isset($_POST['submit']))
-				{	  
-					include 'function.php';
-				}
-		?>
 		
 </div>
 
