@@ -1,3 +1,13 @@
+<?php
+	
+	require('functions.php');
+	$con = new DB_con();
+	$table = "message";
+	$result = $con->view($table);
+
+	
+?>
+
 <html>
 <head> 
 <title>blog</title>
