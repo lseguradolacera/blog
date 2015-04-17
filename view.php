@@ -4,13 +4,28 @@
 	$con = new DB_con();
 	$table = "message";
 	$result = $con->view($table);
-
 	
 ?>
-
 <html>
 <head> 
-<title>blog</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> View </title>
+<script type="text/javascript">
+function del_id(id)
+{
+	if(confirm('Sure to delete this record ?'))
+	{
+		window.location='delete.php?delete_id='+id
+	}
+}
+function edit_id(id)
+{
+	if(confirm('Sure to edit this record ?'))
+	{
+		window.location='edit_data.php?edit_id='+id
+	}
+}
+</script>
 </head>
 <body>
 <style>
@@ -52,16 +67,15 @@ body{
 <center><h1>BLOG</h1>
 <hr color="grey">
 <?php
-	$con = mysqli_connect("localhost", "root", "", "blog");
-	$result = mysqli_query($con, "SELECT * FROM message order by number");
-	
+
 	echo "<table border='0'>";
 	while($row = mysqli_fetch_array($result))
 	{	
 		echo"<tr>";
 		echo "<div id='comments'>";
 			echo"<div id='message'>";
-				echo $row['msg']."<br/>";
+			echo $row['msg']."<br/>";
+			echo "<div> "?> <a href="javascript:del_id(<?php echo $row[0]; ?>)"><img src="b_drop.png" alt="DELETE" /></a> <?php "</div>";
 				echo"<br />";
 				echo "<div id='name'>";
 				echo "<b>". $row['name'] ."</b>";
@@ -72,10 +86,8 @@ body{
 		echo"</tr>";
 	}
 	echo "</table></center>";
-	mysqli_close($con)
 ?>
 
 <footer><center><a href='index.php'>Home</a></center></footer>
 </body>
 </html>
-	
