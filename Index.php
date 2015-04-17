@@ -1,10 +1,15 @@
 <?php
-	if (isset($_POST['submit']))
-	{	  
-	include 'function.php';
-	}
+		
+		if (isset($_POST['submit']))
+		{	  
+			include('functions.php');
+			$con = new DB_con();
+			$name=$_POST['name'];
+			$msg=$_POST['msg'];
+			$con->add($name,$msg);
+		}
+				
 ?>
-
 <html>
 <head> <title>blog</title>
 <style>
