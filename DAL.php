@@ -28,27 +28,11 @@ class DAL{
 		
 	}	
 	
-	public function EditMessage(Message $data){
+	public function EditMessage($table,$id,$name,$message){
 		
-		$res = mysqli_query($this->Connection,"UPDATE message SET name='{$data->Name}', msg='{$data->Message}' WHERE number=".$data->ID);
-		//$this->Connection
+		$res = mysqli_query($this->Connection,"UPDATE message SET name='$name', msg='$message' WHERE number=".$id);
+		return $res;
 	}
 	
-	
-}
-
-class Message{
-	
-	public $Name;
-	public $Message;
-	public $ID;
-	//etc
-	
-	public function __construct($name,$message,$id){
-		$this->Name = $name;
-		$this->Message = $message;
-		$this->ID = $id;
-		//etc
-	}
 	
 }
