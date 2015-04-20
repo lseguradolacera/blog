@@ -1,9 +1,9 @@
 <?php
 	
-	require('functions.php');
-	$con = new DB_con();
+	require('DAL.php');
+	$connection = new DAL();
 	$table = "message";
-	$result = $con->view($table);
+	$result = $connection->ViewMessage($table);
 	
 ?>
 <html>
@@ -22,7 +22,7 @@ function edit_id(id)
 {
 	if(confirm('Sure to edit this record ?'))
 	{
-		window.location='edit_data.php?edit_id='+id
+		window.location='update.php?edit_id='+id
 	}
 }
 </script>
@@ -76,6 +76,7 @@ body{
 			echo"<div id='message'>";
 			echo $row['msg']."<br/>";
 			echo "<div> "?> <a href="javascript:del_id(<?php echo $row[0]; ?>)"><img src="b_drop.png" alt="DELETE" /></a> <?php "</div>";
+			echo "<div> "?> <a href="javascript:edit_id(<?php echo $row[0]; ?>)"><img src="b_edit.png" alt="EDIT" /></a> <?php "</div>";
 				echo"<br />";
 				echo "<div id='name'>";
 				echo "<b>". $row['name'] ."</b>";
