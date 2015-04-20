@@ -1,11 +1,11 @@
 <?php 
-include ('functions.php');
-$conn = new DB_con();
+include ('DAL.php');
+$connection = new DAL();
 $table = "message";
 		if(isset($_GET['delete_id']))
 		{
 			$id=$_GET['delete_id'];
-			$res=$conn->delete($table,$id);
+			$res=$connection->DeleteMessage($table,$id);
 			if($res)
 			{
 				?>
