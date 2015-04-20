@@ -1,15 +1,18 @@
-<?php
+		<?php
 		
-		if (isset($_POST['submit']))
-		{	  
-			include('functions.php');
-			$con = new DB_con();
-			$name=$_POST['name'];
-			$msg=$_POST['msg'];
-			$con->add($name,$msg);
-		}
+				if (isset($_POST['submit']))
+				{	  
+					include('DAL.php');
+					$connection = new DAL();
+					$name=$_POST['name'];
+					$message=$_POST['msg'];
+					$connection->AddMessage($name,$message);
+				}
 				
-?>
+		?>
+		
+
+
 <html>
 <head> <title>blog</title>
 <style>
@@ -82,5 +85,3 @@ body {
 
 </body>
 </html>
-
-
