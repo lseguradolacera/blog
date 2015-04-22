@@ -1,39 +1,33 @@
 <?php
-include_once 'DAL.php';
+include ('DAL.php');
 $connection = new DAL();
 $table = "message";
+include ('header.php');
+session_start();
 if(isset($_GET['edit_id']))
 {
 	$conn = mysqli_connect("localhost","root","","blog");
 	$sql=mysqli_query($conn,"SELECT * FROM message WHERE number=".$_GET['edit_id']);
 	$result=mysqli_fetch_array($sql);
+
+	
 }
 if(isset($_POST['submit']))
 {
-	
 	$name = $_POST['name'];
 	$message = $_POST['msg'];
+		$id=$_GET['edit_id'];
+		$res=$connection->EditMessage($table,$id,$name,$message);
+			if(!$res)
+			{
+				?>
+				<script>
+				alert('OK...');
+		        window.location='view.php'
+		        </script>
+				<?php
+			}
 	
-	$id=$_GET['edit_id'];
-	$res=$connection->EditMessage($table,$id,$name,$message);
-	if($res)
-	{
-		?>
-		<script>
-		alert('Record updated...');
-        window.location='view.php'
-        </script>
-		<?php
-	}
-	else
-	{
-		?>
-		<script>
-		alert('error updating record...');
-        window.location='view.php'
-        </script>
-		<?php
-	}
 }
 
 ?>
